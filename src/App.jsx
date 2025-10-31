@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import LandingPage from './pages/LandingPage'
+import Admin from '/src/pages/Admin'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/landing" element={<LandingPage />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
       </Router>
