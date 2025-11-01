@@ -7,6 +7,9 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import LandingPage from './pages/LandingPage'
 import Admin from '/src/pages/Admin'
+import CreateAlbum from './pages/CreateAlbum'
+import AlbumDetails from './pages/AlbumDetails'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
@@ -20,7 +23,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/landing" element={<LandingPage />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+            <Route path="/admin/create-album" element={<ProtectedRoute><CreateAlbum /></ProtectedRoute>} />
+            <Route path="/admin/album/:id" element={<ProtectedRoute><AlbumDetails /></ProtectedRoute>} />
           </Routes>
         </div>
       </Router>

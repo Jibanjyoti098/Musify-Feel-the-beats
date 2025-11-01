@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthUserContext'
+import { isAdmin } from '../config/adminConfig'
 import M from "../assets/M.png"
 import { FaUser } from 'react-icons/fa'
 
@@ -41,6 +42,14 @@ const NavBar = () => {
         <div className='flex items-center gap-5'>
           {user ? (
             <div className='flex items-center gap-4'>
+              {user && isAdmin(user.email) && (
+                <button 
+                  onClick={() => navigate('/admin')}
+                  className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition duration-200'
+                >
+                  Admin Panel
+                </button>
+              )}
               <div className='flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full'>
                 <FaUser className='text-blue-500' />
                 <span className='text-white text-sm'>{user.displayName || user.email}</span>
